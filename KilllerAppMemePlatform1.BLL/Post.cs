@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KillerAppMemePlatform.DAL.Interfaces;
+using KillerAppMemePlatform1.Factory;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,16 +19,24 @@ namespace KilllerAppMemePlatform1.BLL
         public string Title { get; set; }
         public string ImagePath { get; set; }
         public int Account_id { get; set; }
-        public int? Category_id { get; set; }
+        public int Category_id { get; set; }
 
-        public Post(string videoPath, string title,
-                    string imagePath, int account_id, int? category_id)
+        public IPostDAL PostDAL { get; private set; } = KillerAppFactory.CreatePostDAL();
+
+        public Post(PostStruct postStruct)
         {
-            VideoPath = videoPath;
-            Title = title;
-            ImagePath = imagePath;
-            Account_id = account_id;
-            Category_id = category_id;
+            Post_id = postStruct.Post_id;
+            VideoPath = postStruct.VideoPath;
+            Title = postStruct.Title;
+            ImagePath = postStruct.ImagePath;
+            Account_id = postStruct.Account_id;
+            Category_id = postStruct.Category_id;
+        }
+
+        public void Update()
+        {
+            PostStruct postStruct = new PostStruct(Post_id, VideoPath, Title, ImagePath, Account_id, Category_id);
+            PostDAL.Update(postStruct);
         }
 
         public void AddCommentToPost(Comment comment)

@@ -23,7 +23,7 @@ namespace KillerAppMemePlatform1.Controllers
                 try
                 {
                     BusinessLogic bl = new BusinessLogic();
-                    Post post1 = new Post("", "Nobody reads title", @"C:\Users\guita\Pictures\Memes\femaleStreamers.jpg", 1, 0);
+                    Post post1 = new Post(1, "", "Nobody reads title", @"C:\Users\guita\Pictures\Memes\femaleStreamers.jpg", 1, 0);
                     int i = bl.PostInsert(post1);
                     if (post1.Title != "" && i == 1)
                     {

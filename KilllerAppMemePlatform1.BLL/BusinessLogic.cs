@@ -11,14 +11,14 @@ namespace KilllerAppMemePlatform1.BLL
 {
     public class BusinessLogic
     {
-        public int PostInsert(Post post1)
-        {
-            //if (post1.Title != "")
-            //{
-                DataAccess access = new DataAccess();
-                return access.PostInsert(post1);
-            //}
+        //public int PostInsert(Post post1)
+        //{
+        //    //if (post1.Title != "")
+        //    //{
+        //        DataAccess access = new DataAccess();
+        //        return access.PostInsert(post1);
+        //    //}
             
-        }
+        //}
     }
 }

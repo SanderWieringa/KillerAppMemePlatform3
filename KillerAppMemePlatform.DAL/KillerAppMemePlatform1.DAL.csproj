@@ -42,9 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess.cs" />
+    <Compile Include="PostDAL.cs" />
     <Compile Include="PostInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KillerAppMemePlatform.DAL.Interfaces\KillerAppMemePlatform1.DAL.Interfaces.csproj">
+      <Project>{c35868f2-8b0d-4a37-9036-e16ffa3fe483}</Project>
+      <Name>KillerAppMemePlatform1.DAL.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
