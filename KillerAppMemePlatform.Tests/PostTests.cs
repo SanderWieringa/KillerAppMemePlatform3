@@ -16,7 +16,7 @@ namespace KillerAppMemePlatform.Tests
         public void AddPostTest()
         {
             // Arrange
-            PostStruct postStruct = new PostStruct(1, "", "Nobody reads this", "", 0, 0);
+            PostStruct postStruct = new PostStruct(1, "", "Title", "", 1, 0);
 
             Post testPost = new Post(postStruct);
 
@@ -24,6 +24,8 @@ namespace KillerAppMemePlatform.Tests
             PostCollection.Add(postStruct);
 
             List<Post> post = PostCollection.GetAll();
+
+            post.Reverse();
 
             Post lastAdded = post[0];
 

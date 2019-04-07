@@ -25,13 +25,16 @@ namespace KillerAppMemePlatform.DAL
             List<PostStruct> postStructList = new List<PostStruct>();
             using (GetConnection())
             {
-                string query = "SELECT * FROM Post";
                 conn.Open();
-                SqlCommand command = new SqlCommand(query, conn);
-                using (SqlDataReader reader = command.ExecuteReader())
+                SqlCommand cmd = new SqlCommand("SP_GetAllPosts", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), 
+                    while (reader.Read())
+                    {
+                        postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
                                                       reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5)));
+                    }
                 }
             }
             return postStructList;

@@ -14,7 +14,14 @@ namespace KilllerAppMemePlatform1.BLL
 
         public static void Add(PostStruct postStruct)
         {
-            postCollectionDAL.Add(postStruct);
+            if (postStruct.Title != "")
+            {
+                postCollectionDAL.Add(postStruct);
+            }
+            else
+            {
+                throw new System.ArgumentException("Title can not be null");
+            }
         }
 
         public static List<Post> GetAll()
