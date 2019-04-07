@@ -22,18 +22,18 @@ namespace KillerAppMemePlatform1.Controllers
             {
                 try
                 {
-                    BusinessLogic bl = new BusinessLogic();
-                    Post post1 = new Post(1, "", "Nobody reads title", @"C:\Users\guita\Pictures\Memes\femaleStreamers.jpg", 1, 0);
-                    int i = bl.PostInsert(post1);
-                    if (post1.Title != "" && i == 1)
-                    {
-                        return View("Succes");
-                    }
-                    else
-                    {
-                        TempData["error"] = "Something went wrong!";
-                        return RedirectToAction("Create");
-                    }
+                    //BusinessLogic bl = new BusinessLogic();
+                    //Post post1 = new Post(1, "", "Nobody reads title", @"C:\Users\guita\Pictures\Memes\femaleStreamers.jpg", 1, 0);
+                    //int i = bl.PostInsert(post1);
+                    //if (post1.Title != "" && i == 1)
+                    //{
+                    //    return View("Succes");
+                    //}
+                    //else
+                    //{
+                    //    TempData["error"] = "Something went wrong!";
+                    //    return RedirectToAction("Create");
+                    //}
                     
                 }
                 catch
@@ -63,5 +63,5 @@ namespace KillerAppMemePlatform1.Controllers
 //        TempData["error"] = "Uploading the file failed!";
 //        return RedirectToAction("Create");
 //    }
-    }
-}
+    //}
+//}

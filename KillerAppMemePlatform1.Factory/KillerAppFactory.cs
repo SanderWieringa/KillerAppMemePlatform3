@@ -14,5 +14,10 @@ namespace KillerAppMemePlatform1.Factory
         {
             return new PostDAL();
         }
+
+        public static IPostCollectionDAL CreatePostCollectionDAL()
+        {
+            return new PostDAL();
+        }
     }
 }

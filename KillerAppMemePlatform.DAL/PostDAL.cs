@@ -8,25 +8,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KillerAppMemePlatform.DAL
+namespace KillerAppMemePlatform.DAL 
 {
-    public class PostDAL
+    public class PostDAL : IPostDAL, IPostCollectionDAL
     {
-        public int PostInsert(PostStruct postStruct)
+        private SqlConnection conn;
+        const string connectionString = "Data Source=mssql.fhict.local;Initial Catalog=dbi365250;Persist Security Info=True;User ID=dbi365250;Password=Kcw0hI3FHW";
+
+        private SqlConnection GetConnection()
         {
-            ConnectionStringSettings bbl = ConfigurationManager.ConnectionStrings["Data Source=mssql.fhict.local;Initial Catalog=dbi365250;User ID=dbi365250"];
-            SqlConnection con = new SqlConnection(bbl.ConnectionString);
-            SqlCommand cmd = new SqlCommand("SP_PostInsert", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@videoPath", postStruct.VideoPath);
-            cmd.Parameters.AddWithValue("@title", postStruct.Title);
-            cmd.Parameters.AddWithValue("@imagePath", postStruct.ImagePath);
-            cmd.Parameters.AddWithValue("@account_id", postStruct.Account_id);
-            cmd.Parameters.AddWithValue("@category_id", postStruct.Category_id);
-            con.Open();
-            int Result = cmd.ExecuteNonQuery();
-            con.Close();
-            return Result;
+            return conn = new SqlConnection(connectionString);
+        }
+
+        public List<PostStruct> GetAllPosts()
+        {
+            List<PostStruct> postStructList = new List<PostStruct>();
+            using (GetConnection())
+            {
+                string query = "SELECT * FROM Post";
+                conn.Open();
+                SqlCommand command = new SqlCommand(query, conn);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), 
+                                                      reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5)));
+                }
+            }
+            return postStructList;
+        }
+
+        public bool Update(PostStruct postStruct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add(PostStruct postStruct)
+        {
+            using (GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SP_PostInsert", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@videoPath", postStruct.VideoPath);
+                cmd.Parameters.AddWithValue("@title", postStruct.Title);
+                cmd.Parameters.AddWithValue("@imagePath", postStruct.ImagePath);
+                cmd.Parameters.AddWithValue("@account_id", postStruct.Account_id);
+                cmd.Parameters.AddWithValue("@category_id", postStruct.Category_id);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            
         }
     }
 }
