@@ -19,7 +19,7 @@ namespace KilllerAppMemePlatform1.BLL
         public string Title { get; set; }
         public string ImagePath { get; set; }
         public int Account_id { get; set; }
-        public int Category_id { get; set; }
+        public int? Category_id { get; set; }
 
         public IPostDAL PostDAL { get; private set; } = KillerAppFactory.CreatePostDAL();
 

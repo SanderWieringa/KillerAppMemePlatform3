@@ -12,12 +12,20 @@ namespace KillerAppMemePlatform.DAL
 {
     public class PostDAL : IPostDAL, IPostCollectionDAL
     {
+        
         private SqlConnection conn;
         const string connectionString = "Data Source=mssql.fhict.local;Initial Catalog=dbi365250;Persist Security Info=True;User ID=dbi365250;Password=Kcw0hI3FHW";
 
         private SqlConnection GetConnection()
         {
             return conn = new SqlConnection(connectionString);
+        }
+
+        private static string SafeGetString(SqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetString(colIndex);
+            return string.Empty;
         }
 
         public List<PostStruct> GetAllPosts()
@@ -29,11 +37,11 @@ namespace KillerAppMemePlatform.DAL
                 SqlCommand cmd = new SqlCommand("SP_GetAllPosts", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 using (SqlDataReader reader = cmd.ExecuteReader())
-                {
+                {   
                     while (reader.Read())
                     {
-                        postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
-                                                      reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5)));
+                        postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
+                                                      reader.GetString(3) as string, reader.GetInt32(4), (reader.GetInt32(5) as int?) ?? 0));
                     }
                 }
             }
