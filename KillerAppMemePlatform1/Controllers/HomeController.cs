@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KillerAppMemePlatform1.Logic.Factory;
+using KillerAppMemePlatform1.Logic.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,12 @@ namespace KillerAppMemePlatform1.Controllers
 {
     public class HomeController : Controller
     {
+        public IPost PostLogic { get; private set; } = KillerAppLogicFactory.CreatePost();
+        public IPostCollection PostCollectionLogic { get; private set; } = KillerAppLogicFactory.CreatePostCollection();
+
         public ActionResult Index()
         {
-            return View();
+            return View(PostCollectionLogic.GetAllPosts());
         }
 
         public ActionResult About()
@@ -23,6 +28,13 @@ namespace KillerAppMemePlatform1.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Upload()
+        {
+            ViewBag.Message = "Your Upload page.";
 
             return View();
         }

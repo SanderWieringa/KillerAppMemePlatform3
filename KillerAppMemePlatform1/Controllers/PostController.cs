@@ -1,17 +1,21 @@
-﻿using KilllerAppMemePlatform1.BLL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using KillerAppMemePlatform1.Logic.Factory;
+using KillerAppMemePlatform1.Logic.Interfaces;
 
 namespace KillerAppMemePlatform1.Controllers
 {
     public class PostController : Controller
     {
+        
+
         // GET: Post
         public ActionResult Index()
         {
+
             return View();
         }
 

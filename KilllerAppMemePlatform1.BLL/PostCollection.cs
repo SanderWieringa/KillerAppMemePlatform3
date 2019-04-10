@@ -1,5 +1,6 @@
 ﻿using KillerAppMemePlatform.DAL.Interfaces;
 using KillerAppMemePlatform1.Factory;
+using KillerAppMemePlatform1.Logic.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace KilllerAppMemePlatform1.BLL
 {
-    public class PostCollection
+    public class PostCollection : IPostCollection
     {
-        public static IPostCollectionDAL postCollectionDAL = KillerAppFactory.CreatePostCollectionDAL();
+        public static IPostCollectionDAL postCollectionDAL = KillerAppDALFactory.CreatePostCollectionDAL();
 
         public static void Add(PostStruct postStruct)
         {
@@ -33,6 +34,16 @@ namespace KilllerAppMemePlatform1.BLL
             }
             postCollectionDAL.GetAllPosts();
             return postList;
+        }
+
+        public void Add(IPost post)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<IPost> GetAllPosts()
+        {
+            throw new NotImplementedException();
         }
     }
 }

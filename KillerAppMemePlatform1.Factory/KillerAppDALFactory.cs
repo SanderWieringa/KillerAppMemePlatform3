@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KillerAppMemePlatform1.Factory
 {
-    public static class KillerAppFactory
+    public static class KillerAppDALFactory
     {
         public static IPostDAL CreatePostDAL()
         {

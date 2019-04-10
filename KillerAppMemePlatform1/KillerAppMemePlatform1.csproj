@@ -214,9 +214,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KilllerAppMemePlatform1.BLL\KilllerAppMemePlatform1.BLL.csproj">
-      <Project>{3f29129f-b832-40bb-9544-c461492df71f}</Project>
-      <Name>KilllerAppMemePlatform1.BLL</Name>
+    <ProjectReference Include="..\KillerAppMemePlatform1.Logic.Factory\KillerAppMemePlatform1.Logic.Factory.csproj">
+      <Project>{B20B64CA-74B0-466B-8BCC-815EDB590C03}</Project>
+      <Name>KillerAppMemePlatform1.Logic.Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KillerAppMemePlatform1.Logic.Interfaces\KillerAppMemePlatform1.Logic.Interfaces.csproj">
+      <Project>{60ca1e0f-419a-4c9d-b049-5da61cf7e693}</Project>
+      <Name>KillerAppMemePlatform1.Logic.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

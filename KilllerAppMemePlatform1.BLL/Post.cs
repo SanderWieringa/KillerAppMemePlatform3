@@ -1,5 +1,6 @@
 ﻿using KillerAppMemePlatform.DAL.Interfaces;
 using KillerAppMemePlatform1.Factory;
+using KillerAppMemePlatform1.Logic.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KilllerAppMemePlatform1.BLL
 {
-    public class Post
+    public class Post : IPost
     {
         List<Comment> commentList = new List<Comment>();
         List<Like> likeList = new List<Like>();
@@ -21,7 +22,7 @@ namespace KilllerAppMemePlatform1.BLL
         public int Account_id { get; set; }
         public int? Category_id { get; set; }
 
-        public IPostDAL PostDAL { get; private set; } = KillerAppFactory.CreatePostDAL();
+        public IPostDAL PostDAL { get; private set; } = KillerAppDALFactory.CreatePostDAL();
 
         public Post(PostStruct postStruct)
         {
@@ -31,6 +32,10 @@ namespace KilllerAppMemePlatform1.BLL
             ImagePath = postStruct.ImagePath;
             Account_id = postStruct.Account_id;
             Category_id = postStruct.Category_id;
+        }
+
+        public Post()
+        {
         }
 
         public void Update()
@@ -53,6 +58,11 @@ namespace KilllerAppMemePlatform1.BLL
         {
             ImagePath = Path.Combine(serverFolder + "-image.png");
             VideoPath = Path.Combine(serverFolder + "-video.gif");
+        }
+
+        public void Update(IPost post)
+        {
+            throw new NotImplementedException();
         }
     }
 }

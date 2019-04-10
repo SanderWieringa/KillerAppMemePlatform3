@@ -71,9 +71,9 @@
       <Project>{5984ac4b-e8be-420e-9455-adfb0edd6993}</Project>
       <Name>KillerAppMemePlatform1.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\KillerAppMemePlatform1.Factory\KillerAppMemePlatform1.Factory.csproj">
+    <ProjectReference Include="..\KillerAppMemePlatform1.Factory\KillerAppMemePlatform1.DAL.Factory.csproj">
       <Project>{cb949ac6-219d-452e-910c-5db37f880de9}</Project>
-      <Name>KillerAppMemePlatform1.Factory</Name>
+      <Name>KillerAppMemePlatform1.DAL.Factory</Name>
     </ProjectReference>
     <ProjectReference Include="..\KillerAppMemePlatform1\KillerAppMemePlatform1.csproj">
       <Project>{04b51d19-f09c-420f-bc0f-2511a9b7013c}</Project>
