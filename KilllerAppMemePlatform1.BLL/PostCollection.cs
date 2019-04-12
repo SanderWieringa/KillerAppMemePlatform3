@@ -13,7 +13,7 @@ namespace KilllerAppMemePlatform1.BLL
     {
         public static IPostCollectionDAL postCollectionDAL = KillerAppDALFactory.CreatePostCollectionDAL();
 
-        public static void Add(PostStruct postStruct)
+        public void Add(PostStruct postStruct)
         {
             if (postStruct.Title != "")
             {
@@ -25,16 +25,16 @@ namespace KilllerAppMemePlatform1.BLL
             }
         }
 
-        public static List<Post> GetAll()
-        {
-            List<Post> postList = new List<Post>();
-            foreach (PostStruct postStruct in postCollectionDAL.GetAllPosts())
-            {
-                postList.Add(new Post(postStruct));
-            }
-            postCollectionDAL.GetAllPosts();
-            return postList;
-        }
+        //public List<Post> GetAll()
+        //{
+        //    List<Post> postList = new List<Post>();
+        //    foreach (PostStruct postStruct in postCollectionDAL.GetAllPosts())
+        //    {
+        //        postList.Add(new Post(postStruct));
+        //    }
+        //    postCollectionDAL.GetAllPosts();
+        //    return postList;
+        //}
 
         public void Add(IPost post)
         {
@@ -43,7 +43,13 @@ namespace KilllerAppMemePlatform1.BLL
 
         public List<IPost> GetAllPosts()
         {
-            throw new NotImplementedException();
+            List<IPost> postList = new List<IPost>();
+            foreach (PostStruct postStruct in postCollectionDAL.GetAllPosts())
+            {
+                IPost post = new Post(postStruct);
+                postList.Add(post);
+            }
+            return postList;
         }
     }
 }

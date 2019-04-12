@@ -41,7 +41,7 @@ namespace KillerAppMemePlatform.DAL
                     while (reader.Read())
                     {
                         postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
-                                                      reader.GetString(3) as string, reader.GetInt32(4), (reader.GetInt32(5) as int?) ?? 0));
+                                                          reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0));
                     }
                 }
             }
@@ -60,9 +60,8 @@ namespace KillerAppMemePlatform.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("SP_PostInsert", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@videoPath", postStruct.VideoPath);
+                cmd.Parameters.AddWithValue("@videoPath", postStruct.FilePath);
                 cmd.Parameters.AddWithValue("@title", postStruct.Title);
-                cmd.Parameters.AddWithValue("@imagePath", postStruct.ImagePath);
                 cmd.Parameters.AddWithValue("@account_id", postStruct.Account_id);
                 cmd.Parameters.AddWithValue("@category_id", postStruct.Category_id);
                 cmd.ExecuteNonQuery();

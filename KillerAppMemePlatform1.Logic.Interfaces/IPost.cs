@@ -8,6 +8,12 @@ namespace KillerAppMemePlatform1.Logic.Interfaces
 {
     public interface IPost
     {
-        void Update(IPost post);
+        int Post_id { get; set; }
+        string FilePath { get; set; }
+        string Title { get; set; }
+        int Account_id { get; set; }
+        int Category_id { get; set; }
+
+        void Update();
     }
 }
