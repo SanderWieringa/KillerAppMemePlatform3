@@ -8,17 +8,17 @@ namespace KillerAppMemePlatform.DAL.Interfaces
 {
     public struct PostStruct
     {
-        public int Post_id { get; set; }
+        public int PostId { get; set; }
         public string FilePath { get; set; }
         public string Title { get; set; }
-        public int Account_id { get; set; }
-        public int Category_id { get; set; }
+        public int AccountId { get; set; }
+        public int CategoryId { get; set; }
 
-        public PostStruct(int post_id, string filePath, string title,
-                          int account_id, int category_id)
+        public PostStruct(int postId, string filePath, string title,
+                          int accountId, int categoryId)
         {
-            
-            Post_id = post_id;
+
+            PostId = postId;
             if (filePath != null)
             {
                 FilePath = filePath;
@@ -28,8 +28,8 @@ namespace KillerAppMemePlatform.DAL.Interfaces
                 FilePath = "";
             }
             Title = title;
-            Account_id = account_id;
-            Category_id = category_id;
+            AccountId = accountId;
+            CategoryId = categoryId;
         }
     }
 }

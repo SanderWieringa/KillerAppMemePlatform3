@@ -62,8 +62,8 @@ namespace KillerAppMemePlatform.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@videoPath", postStruct.FilePath);
                 cmd.Parameters.AddWithValue("@title", postStruct.Title);
-                cmd.Parameters.AddWithValue("@account_id", postStruct.Account_id);
-                cmd.Parameters.AddWithValue("@category_id", postStruct.Category_id);
+                cmd.Parameters.AddWithValue("@account_id", postStruct.AccountId);
+                cmd.Parameters.AddWithValue("@category_id", postStruct.CategoryId);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
