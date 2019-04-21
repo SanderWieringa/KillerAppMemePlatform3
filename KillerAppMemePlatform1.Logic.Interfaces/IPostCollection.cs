@@ -11,5 +11,11 @@ namespace KillerAppMemePlatform1.Logic.Interfaces
         void Add(IPost post);
 
         List<IPost> GetAllPosts();
+
+        //List<IPost> GetAllHotPosts();
+
+        //List<IPost> GetAllTrendingPosts();
+
+        //List<IPost> GetAllFreshPosts();
     }
 }

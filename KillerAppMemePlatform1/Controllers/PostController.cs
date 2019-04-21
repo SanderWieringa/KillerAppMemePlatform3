@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using KillerAppMemePlatform1.Logic.Factory;
 using KillerAppMemePlatform1.Logic.Interfaces;
+using KillerAppMemePlatform1.Models;
 
 namespace KillerAppMemePlatform1.Controllers
 {
@@ -20,25 +21,27 @@ namespace KillerAppMemePlatform1.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create()
+        public ActionResult Create(HttpPostedFileBase uploadFile, PostModel postModel)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    //BusinessLogic bl = new BusinessLogic();
-                    //Post post1 = new Post(1, "", "Nobody reads title", @"C:\Users\guita\Pictures\Memes\femaleStreamers.jpg", 1, 0);
-                    //int i = bl.PostInsert(post1);
-                    //if (post1.Title != "" && i == 1)
-                    //{
-                    //    return View("Succes");
-                    //}
-                    //else
-                    //{
-                    //    TempData["error"] = "Something went wrong!";
-                    //    return RedirectToAction("Create");
-                    //}
-                    
+                    if (uploadFile != null)
+                    {
+                        postModel.setFilePaths(Server.MapPath("~/UploadedFiles"));
+
+                        string pathFile = postModel.FilePath;
+                        uploadFile.SaveAs(pathFile);
+
+
+                        return View("Success");
+                    }
+                    else
+                    {
+                        TempData["error"] = "Uploading the file failed!";
+                        return RedirectToAction("Create");
+                    }
                 }
                 catch
                 {
@@ -50,22 +53,7 @@ namespace KillerAppMemePlatform1.Controllers
         }
     }
 }
-//if (uploadFile != null)
-//{
-//Post post, HttpPostedFileBase uploadFile
 
-//post.setFilePaths(Server.MapPath(~/))
-//string pathImage = post.ImagePath;
-//uploadFile.SaveAs(pathImage);
-
-//string pathVideo = post.VideoPath;
-//uploadFile.SaveAs(pathVideo);
-
-//    }
-//    else
-//    {
-//        TempData["error"] = "Uploading the file failed!";
-//        return RedirectToAction("Create");
-//    }
+//    
     //}
 //}

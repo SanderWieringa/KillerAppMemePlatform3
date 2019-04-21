@@ -1,4 +1,4 @@
-﻿@model IEnumerable<KillerAppMemePlatform1.Models.PersonModel>
+﻿@model IEnumerable<KillerAppMemePlatform1.Models.PostModel>
 
 @{
     ViewBag.Title = "Fresh";
@@ -11,6 +11,24 @@
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusId)
+        </th>
         <th></th>
     </tr>
 
@@ -33,9 +51,12 @@
                 @Html.DisplayFor(modelItem => item.CategoryId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.StatusId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { item.PostId }) |
+                @Html.ActionLink("Details", "Details", new { item.PostId }) |
+                @Html.ActionLink("Delete", "Delete", new { item.PostId })
             </td>
         </tr>
     }

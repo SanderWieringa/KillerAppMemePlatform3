@@ -152,7 +152,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="Models\PostModel.cs" />
+    <Compile Include="Models\PostCollectionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,9 +196,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Upload.cshtml" />
-    <Content Include="Views\Home\Hot.cshtml" />
+    <Content Include="Views\Home\Hot1.cshtml" />
     <Content Include="Views\Home\Fresh.cshtml" />
     <Content Include="Views\Home\Trending.cshtml" />
+    <Content Include="Views\Home\Hot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

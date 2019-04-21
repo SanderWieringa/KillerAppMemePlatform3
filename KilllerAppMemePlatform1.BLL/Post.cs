@@ -20,6 +20,7 @@ namespace KilllerAppMemePlatform1.BLL
         public string Title { get; set; }
         public int AccountId { get; set; }
         public int CategoryId { get; set; }
+        public int StatusId { get; set; }
 
         public IPostDAL PostDAL { get; private set; } = KillerAppDALFactory.CreatePostDAL();
 
@@ -30,6 +31,7 @@ namespace KilllerAppMemePlatform1.BLL
             Title = postStruct.Title;
             AccountId = postStruct.AccountId;
             CategoryId = postStruct.CategoryId;
+            StatusId = postStruct.StatusId;
         }
 
         public Post()
@@ -39,7 +41,7 @@ namespace KilllerAppMemePlatform1.BLL
 
         public void Update()
         {
-            PostStruct postStruct = new PostStruct(PostId, FilePath, Title, AccountId, CategoryId);
+            PostStruct postStruct = new PostStruct(PostId, FilePath, Title, AccountId, CategoryId, StatusId);
             PostDAL.Update(postStruct);
         }
 

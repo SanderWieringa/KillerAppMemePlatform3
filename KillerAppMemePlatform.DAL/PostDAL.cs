@@ -28,6 +28,66 @@ namespace KillerAppMemePlatform.DAL
             return string.Empty;
         }
 
+        //public List<PostStruct> GetAllHotPosts()
+        //{
+        //    List<PostStruct> postStructList = new List<PostStruct>();
+        //    using (GetConnection())
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand("SP_GetAllHotPosts", conn);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        using (SqlDataReader reader = cmd.ExecuteReader())
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
+        //                                                  reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5)));
+        //            }
+        //        }
+        //    }
+        //    return postStructList;
+        //}
+
+        //public List<PostStruct> GetAllTrendingPosts()
+        //{
+        //    List<PostStruct> postStructList = new List<PostStruct>();
+        //    using (GetConnection())
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand("SP_GetAllTrendingPosts", conn);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        using (SqlDataReader reader = cmd.ExecuteReader())
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
+        //                                                  reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5)));
+        //            }
+        //        }
+        //    }
+        //    return postStructList;
+        //}
+
+        //public List<PostStruct> GetAllFreshPosts()
+        //{
+        //    List<PostStruct> postStructList = new List<PostStruct>();
+        //    using (GetConnection())
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand("SP_GetAllFreshPosts", conn);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        using (SqlDataReader reader = cmd.ExecuteReader())
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
+        //                                                  reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5)));
+        //            }
+        //        }
+        //    }
+        //    return postStructList;
+        //}
+
         public List<PostStruct> GetAllPosts()
         {
             List<PostStruct> postStructList = new List<PostStruct>();
@@ -41,7 +101,7 @@ namespace KillerAppMemePlatform.DAL
                     while (reader.Read())
                     {
                         postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
-                                                          reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0));
+                                                          reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5)));
                     }
                 }
             }
@@ -64,6 +124,7 @@ namespace KillerAppMemePlatform.DAL
                 cmd.Parameters.AddWithValue("@title", postStruct.Title);
                 cmd.Parameters.AddWithValue("@account_id", postStruct.AccountId);
                 cmd.Parameters.AddWithValue("@category_id", postStruct.CategoryId);
+                cmd.Parameters.AddWithValue("@status_id", postStruct.StatusId);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }

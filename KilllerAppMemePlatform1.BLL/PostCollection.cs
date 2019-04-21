@@ -51,5 +51,35 @@ namespace KilllerAppMemePlatform1.BLL
             }
             return postList;
         }
+        //public List<IPost> GetAllHotPosts()
+        //{
+        //    List<IPost> postList = new List<IPost>();
+        //    foreach (PostStruct postStruct in postCollectionDAL.GetAllHotPosts())
+        //    {
+        //        IPost post = new Post(postStruct);
+        //        postList.Add(post);
+        //    }
+        //    return postList;
+        //}
+        //public List<IPost> GetAllTrendingPosts()
+        //{
+        //    List<IPost> postList = new List<IPost>();
+        //    foreach (PostStruct postStruct in postCollectionDAL.GetAllTrendingPosts())
+        //    {
+        //        IPost post = new Post(postStruct);
+        //        postList.Add(post);
+        //    }
+        //    return postList;
+        //}
+        //public List<IPost> GetAllFreshPosts()
+        //{
+        //    List<IPost> postList = new List<IPost>();
+        //    foreach (PostStruct postStruct in postCollectionDAL.GetAllFreshPosts())
+        //    {
+        //        IPost post = new Post(postStruct);
+        //        postList.Add(post);
+        //    }
+        //    return postList;
+        //}
     }
 }
