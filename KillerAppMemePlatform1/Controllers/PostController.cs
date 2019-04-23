@@ -1,59 +1,36 @@
-﻿using System;
+﻿using KillerAppMemePlatform1.Logic.Factory;
+using KillerAppMemePlatform1.Logic.Interfaces;
+using KillerAppMemePlatform1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using KillerAppMemePlatform1.Logic.Factory;
-using KillerAppMemePlatform1.Logic.Interfaces;
-using KillerAppMemePlatform1.Models;
 
 namespace KillerAppMemePlatform1.Controllers
 {
     public class PostController : Controller
     {
-        
+        public IPostCollection PostCollectionLogic { get; private set; } = KillerAppLogicFactory.CreatePostCollection();
+
+        public IPost PostLogic { get; private set; } = KillerAppLogicFactory.CreatePost();
 
         // GET: Post
         public ActionResult Index()
         {
-
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Create(HttpPostedFileBase uploadFile, PostModel postModel)
+        public List<PostModel> ConvertToPostModelList()
         {
-            if (ModelState.IsValid)
+            List<PostModel> postModelList = new List<PostModel>();
+
+            foreach (var post in PostCollectionLogic.GetAllPosts())
             {
-                try
-                {
-                    if (uploadFile != null)
-                    {
-                        postModel.setFilePaths(Server.MapPath("~/UploadedFiles"));
-
-                        string pathFile = postModel.FilePath;
-                        uploadFile.SaveAs(pathFile);
-
-
-                        return View("Success");
-                    }
-                    else
-                    {
-                        TempData["error"] = "Uploading the file failed!";
-                        return RedirectToAction("Create");
-                    }
-                }
-                catch
-                {
-                    TempData["error"] = "Something went wrong!";
-                    return RedirectToAction("Create");
-                }
+                postModelList.Add(new PostModel(post));
             }
-            return View();
+
+            return postModelList;
         }
     }
 }
-
-//    
-    //}
-//}

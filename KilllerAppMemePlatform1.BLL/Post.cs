@@ -12,17 +12,24 @@ namespace KilllerAppMemePlatform1.BLL
 {
     public class Post : IPost
     {
+        public IPostDAL PostDAL { get; private set; } = KillerAppDALFactory.CreatePostDAL();
+
         List<Comment> commentList = new List<Comment>();
         List<Like> likeList = new List<Like>();
 
-        public int PostId { get; set; }
-        public string FilePath { get; set; }
-        public string Title { get; set; }
-        public int AccountId { get; set; }
-        public int CategoryId { get; set; }
-        public int StatusId { get; set; }
+        public int PostId { get; private set; }
+        public string FilePath { get; private set; }
+        public string Title { get; private set; }
+        public int AccountId { get; private set; }
+        public int CategoryId { get; private set; }
+        public int StatusId { get; private set; }
 
-        public IPostDAL PostDAL { get; private set; } = KillerAppDALFactory.CreatePostDAL();
+        int IPost.PostId { get; set; }
+        string IPost.FilePath { get; set; }
+        string IPost.Title { get; set; }
+        int IPost.AccountId { get; set; }
+        int IPost.CategoryId { get; set; }
+        int IPost.StatusId { get; set; }
 
         public Post(PostStruct postStruct)
         {
@@ -55,11 +62,9 @@ namespace KilllerAppMemePlatform1.BLL
             likeList.Add(like);
         }
 
-        public void setFilePaths(string serverFolder)
+        bool IPost.Update()
         {
-            FilePath = Path.Combine(serverFolder + "-image.png");
+            throw new NotImplementedException();
         }
-
-        
     }
 }

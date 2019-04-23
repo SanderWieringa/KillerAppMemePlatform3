@@ -25,61 +25,25 @@ namespace KilllerAppMemePlatform1.BLL
             }
         }
 
-        //public List<Post> GetAll()
-        //{
-        //    List<Post> postList = new List<Post>();
-        //    foreach (PostStruct postStruct in postCollectionDAL.GetAllPosts())
-        //    {
-        //        postList.Add(new Post(postStruct));
-        //    }
-        //    postCollectionDAL.GetAllPosts();
-        //    return postList;
-        //}
-
         public void Add(IPost post)
         {
             throw new NotImplementedException();
         }
 
-        public List<IPost> GetAllPosts()
+        public List<Post> GetAll()
         {
-            List<IPost> postList = new List<IPost>();
+            List<Post> postList = new List<Post>();
             foreach (PostStruct postStruct in postCollectionDAL.GetAllPosts())
             {
-                IPost post = new Post(postStruct);
-                postList.Add(post);
+                postList.Add(new Post(postStruct));
             }
+            postCollectionDAL.GetAllPosts();
             return postList;
         }
-        //public List<IPost> GetAllHotPosts()
-        //{
-        //    List<IPost> postList = new List<IPost>();
-        //    foreach (PostStruct postStruct in postCollectionDAL.GetAllHotPosts())
-        //    {
-        //        IPost post = new Post(postStruct);
-        //        postList.Add(post);
-        //    }
-        //    return postList;
-        //}
-        //public List<IPost> GetAllTrendingPosts()
-        //{
-        //    List<IPost> postList = new List<IPost>();
-        //    foreach (PostStruct postStruct in postCollectionDAL.GetAllTrendingPosts())
-        //    {
-        //        IPost post = new Post(postStruct);
-        //        postList.Add(post);
-        //    }
-        //    return postList;
-        //}
-        //public List<IPost> GetAllFreshPosts()
-        //{
-        //    List<IPost> postList = new List<IPost>();
-        //    foreach (PostStruct postStruct in postCollectionDAL.GetAllFreshPosts())
-        //    {
-        //        IPost post = new Post(postStruct);
-        //        postList.Add(post);
-        //    }
-        //    return postList;
-        //}
+
+        public List<IPost> GetAllPosts()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

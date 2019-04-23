@@ -10,7 +10,7 @@
 </div>
 
 
-@using (Html.BeginForm("Create", "Applications", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

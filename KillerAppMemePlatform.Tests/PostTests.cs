@@ -16,21 +16,22 @@ namespace KillerAppMemePlatform.Tests
         public void AddPostTest()
         {
             // Arrange
-            PostStruct postStruct = new PostStruct(1, "", "Title", "", 1, 0);
+            PostStruct postStruct = new PostStruct(1, "", "Title", 1, 0, 1);
 
             Post testPost = new Post(postStruct);
 
             // Act
-            PostCollection.Add(postStruct);
+            PostCollection postCollection = new PostCollection();
+            postCollection.Add(postStruct);
 
-            List<Post> post = PostCollection.GetAll();
+            List<Post> post = postCollection.GetAll();
 
             post.Reverse();
 
             Post lastAdded = post[0];
 
             // Assert
-            Assert.AreEqual(testPost.Post_id, lastAdded.Post_id);
+            Assert.AreEqual(testPost.PostId, lastAdded.PostId);
 
         }
 

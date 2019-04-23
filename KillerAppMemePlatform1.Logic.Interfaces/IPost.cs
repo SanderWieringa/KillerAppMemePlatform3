@@ -15,6 +15,6 @@ namespace KillerAppMemePlatform1.Logic.Interfaces
         int CategoryId { get; set; }
         int StatusId { get; set; }
 
-        void Update();
+        bool Update();
     }
 }

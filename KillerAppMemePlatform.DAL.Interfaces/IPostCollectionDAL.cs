@@ -12,10 +12,5 @@ namespace KillerAppMemePlatform.DAL.Interfaces
 
         List<PostStruct> GetAllPosts();
 
-        //List<PostStruct> GetAllHotPosts();
-
-        //List<PostStruct> GetAllTrendingPosts();
-
-        //List<PostStruct> GetAllFreshPosts();
     }
 }

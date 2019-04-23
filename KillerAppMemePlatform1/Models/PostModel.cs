@@ -1,7 +1,6 @@
 ﻿using KillerAppMemePlatform1.Logic.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -24,11 +23,6 @@ namespace KillerAppMemePlatform1.Models
             AccountId = post.AccountId;
             CategoryId = post.CategoryId;
             StatusId = post.StatusId;
-        }
-
-        public void setFilePaths(string serverFolder)
-        {
-            FilePath = Path.Combine(serverFolder + "-post.png");
         }
     }
 }

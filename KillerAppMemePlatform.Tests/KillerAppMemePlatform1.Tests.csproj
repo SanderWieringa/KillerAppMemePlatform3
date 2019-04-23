@@ -75,6 +75,10 @@
       <Project>{cb949ac6-219d-452e-910c-5db37f880de9}</Project>
       <Name>KillerAppMemePlatform1.DAL.Factory</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KillerAppMemePlatform1.Logic.Interfaces\KillerAppMemePlatform1.Logic.Interfaces.csproj">
+      <Project>{60ca1e0f-419a-4c9d-b049-5da61cf7e693}</Project>
+      <Name>KillerAppMemePlatform1.Logic.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KillerAppMemePlatform1\KillerAppMemePlatform1.csproj">
       <Project>{04b51d19-f09c-420f-bc0f-2511a9b7013c}</Project>
       <Name>KillerAppMemePlatform1</Name>
