@@ -18,7 +18,9 @@ namespace KillerAppMemePlatform1.Controllers
         // GET: Post
         public ActionResult Index()
         {
-            return View();
+            ViewBag.Message = "Your Hot page.";
+
+            return View(ConvertToPostModelList());
         }
 
         public List<PostModel> ConvertToPostModelList()
@@ -31,6 +33,27 @@ namespace KillerAppMemePlatform1.Controllers
             }
 
             return postModelList;
+        }
+
+        public ActionResult Trending()
+        {
+            ViewBag.Message = "Your Trending page.";
+
+            return View(ConvertToPostModelList());
+        }
+
+        public ActionResult Fresh()
+        {
+            ViewBag.Message = "Your Fresh page.";
+
+            return View(ConvertToPostModelList());
+        }
+
+        public ActionResult Upload()
+        {
+            ViewBag.Message = "Your Upload page.";
+
+            return View();
         }
     }
 }

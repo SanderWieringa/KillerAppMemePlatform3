@@ -21,29 +21,31 @@ namespace KilllerAppMemePlatform1.BLL
             }
             else
             {
-                throw new System.ArgumentException("Title can not be null");
+                throw new ArgumentException("Title can not be null");
             }
         }
 
         public void Add(IPost post)
         {
-            throw new NotImplementedException();
+            if (post.Title != "")
+            {
+                postCollectionDAL.Add((post as Post).Convert(post));
+            }
+            else
+            {
+                throw new ArgumentException("Title can not be null");
+            }
         }
 
-        public List<Post> GetAll()
+        public List<IPost> GetAllPosts()
         {
-            List<Post> postList = new List<Post>();
+            List<IPost> postList = new List<IPost>();
             foreach (PostStruct postStruct in postCollectionDAL.GetAllPosts())
             {
                 postList.Add(new Post(postStruct));
             }
             postCollectionDAL.GetAllPosts();
             return postList;
-        }
-
-        public List<IPost> GetAllPosts()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -13,3 +13,4 @@ namespace KillerAppMemePlatform1.Logic.Interfaces
         List<IPost> GetAllPosts();
     }
 }
+    

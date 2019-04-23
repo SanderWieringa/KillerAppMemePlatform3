@@ -1,4 +1,5 @@
 ﻿using KillerAppMemePlatform.DAL.Interfaces;
+using KillerAppMemePlatform1.Logic.Interfaces;
 using KilllerAppMemePlatform1.BLL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -24,7 +25,7 @@ namespace KillerAppMemePlatform.Tests
             PostCollection postCollection = new PostCollection();
             postCollection.Add(postStruct);
 
-            List<Post> post = postCollection.GetAll();
+            List<IPost> post = postCollection.GetAllPosts();
 
             post.Reverse();
 
