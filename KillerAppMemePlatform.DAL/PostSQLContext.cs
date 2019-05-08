@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KillerAppMemePlatform.DAL 
 {
-    public class PostDAL : IPostDAL, IPostCollectionDAL
+    public class PostSQLContext : IPostContext
     {
         
         private SqlConnection conn;
@@ -21,7 +21,7 @@ namespace KillerAppMemePlatform.DAL
             return conn = new SqlConnection(connectionString);
         }
 
-        public List<PostStruct> GetAllPosts()
+        public List<PostStruct> GetAll()
         {
             List<PostStruct> postStructList = new List<PostStruct>();
             using (GetConnection())
@@ -30,7 +30,7 @@ namespace KillerAppMemePlatform.DAL
                 SqlCommand cmd = new SqlCommand("SP_GetAllPosts", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 using (SqlDataReader reader = cmd.ExecuteReader())
-                {   
+                {
                     while (reader.Read())
                     {
                         postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
@@ -62,5 +62,12 @@ namespace KillerAppMemePlatform.DAL
                 conn.Close();
             }
         }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }

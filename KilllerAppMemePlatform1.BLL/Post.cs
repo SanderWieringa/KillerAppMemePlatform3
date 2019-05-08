@@ -12,7 +12,7 @@ namespace KilllerAppMemePlatform1.BLL
 {
     public class Post : IPost
     {
-        public IPostDAL PostDAL { get; private set; } = KillerAppDALFactory.CreatePostDAL();
+        public IPostRepository PostDAL { get; private set; } = KillerAppDALFactory.CreatePostDAL();
 
         List<Comment> commentList = new List<Comment>();
         List<Like> likeList = new List<Like>();

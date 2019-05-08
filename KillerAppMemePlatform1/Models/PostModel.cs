@@ -26,6 +26,11 @@ namespace KillerAppMemePlatform1.Models
             StatusId = post.StatusId;
         }
 
+        public PostModel()
+        {
+           
+        }
+
         public void setFilePaths(string serverFolder)
         {
             this.FilePath = Path.Combine(serverFolder + "-post.png");

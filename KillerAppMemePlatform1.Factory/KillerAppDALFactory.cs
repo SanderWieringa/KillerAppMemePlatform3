@@ -10,14 +10,14 @@ namespace KillerAppMemePlatform1.Factory
 {
     public static class KillerAppDALFactory
     {
-        public static IPostDAL CreatePostDAL()
+        public static IPostRepository CreatePostDAL()
         {
-            return new PostDAL();
+            return new PostRepository(new PostSQLContext());
         }
 
-        public static IPostCollectionDAL CreatePostCollectionDAL()
+        public static IPostCollectionRepository CreatePostCollectionDAL()
         {
-            return new PostDAL();
+            return new PostRepository(new PostSQLContext());
         }
     }
 }

@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace KillerAppMemePlatform.DAL.Interfaces
 {
-    public interface IPostDAL
+    public interface IPostCollectionRepository
     {
-        bool Update(PostStruct postStruct);
+        void Add(PostStruct postStruct);
+
+        List<PostStruct> GetAllPosts();
+        
     }
 }

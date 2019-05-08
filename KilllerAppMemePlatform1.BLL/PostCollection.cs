@@ -11,7 +11,7 @@ namespace KilllerAppMemePlatform1.BLL
 {
     public class PostCollection : IPostCollection
     {
-        public static IPostCollectionDAL postCollectionDAL = KillerAppDALFactory.CreatePostCollectionDAL();
+        public static IPostCollectionRepository postCollectionDAL = KillerAppDALFactory.CreatePostCollectionDAL();
 
         public void Add(PostStruct postStruct)
         {

@@ -41,9 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="IPostCollectionDAL.cs" />
-    <Compile Include="IPostDAL.cs" />
+    <Compile Include="IPostCollectionRepository.cs" />
+    <Compile Include="IPostRepository.cs" />
     <Compile Include="PostStruct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
