@@ -47,15 +47,19 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountTests.cs" />
     <Compile Include="CommentOnCommentTests.cs" />
     <Compile Include="CommentOnPostTests.cs" />
+    <Compile Include="TestFactory.cs" />
     <Compile Include="FilterTests.cs" />
     <Compile Include="GoToMemeTests.cs" />
     <Compile Include="LikeOnCommentTests.cs" />
     <Compile Include="LikeOnPostTests.cs" />
+    <Compile Include="MemoryContextTests.cs" />
+    <Compile Include="PostMemoryContext.cs" />
     <Compile Include="PostTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +78,10 @@
     <ProjectReference Include="..\KillerAppMemePlatform1.Factory\KillerAppMemePlatform1.DAL.Factory.csproj">
       <Project>{cb949ac6-219d-452e-910c-5db37f880de9}</Project>
       <Name>KillerAppMemePlatform1.DAL.Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KillerAppMemePlatform1.Logic.Factory\KillerAppMemePlatform1.Logic.Factory.csproj">
+      <Project>{b20b64ca-74b0-466b-8bcc-815edb590c03}</Project>
+      <Name>KillerAppMemePlatform1.Logic.Factory</Name>
     </ProjectReference>
     <ProjectReference Include="..\KillerAppMemePlatform1.Logic.Interfaces\KillerAppMemePlatform1.Logic.Interfaces.csproj">
       <Project>{60ca1e0f-419a-4c9d-b049-5da61cf7e693}</Project>

@@ -9,26 +9,26 @@ namespace KillerAppMemePlatform.DAL
 {
     public class PostRepository : IPostCollectionRepository, IPostRepository
     {
-        IPostContext context;
+        public IPostContext Context { get; set; }
 
         public PostRepository(IPostContext context)
         {
-
+            Context = context;
         }
 
         public void Add(PostStruct postStruct)
         {
-            context.Add(postStruct);
+            Context.Add(postStruct);
         }
 
         public List<PostStruct> GetAllPosts()
         {
             List<PostStruct> list = new List<PostStruct>();
-            foreach (var post in context.GetAll())
+            foreach (var post in Context.GetAll())
             {
                 list.Add(post);
             }
-            context.GetAll();
+            //Context.GetAll();
             return list;
         }
 

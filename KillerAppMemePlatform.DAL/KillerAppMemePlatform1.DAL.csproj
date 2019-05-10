@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="IPostContext.cs" />
     <Compile Include="PostSQLContext.cs" />
-    <Compile Include="PostMemoryContext.cs" />
     <Compile Include="PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

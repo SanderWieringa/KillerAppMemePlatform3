@@ -11,7 +11,9 @@ namespace KilllerAppMemePlatform1.BLL
 {
     public class PostCollection : IPostCollection
     {
-        public static IPostCollectionRepository postCollectionDAL = KillerAppDALFactory.CreatePostCollectionDAL();
+        private IPostCollectionRepository postCollectionDAL = KillerAppDALFactory.CreatePostCollectionDAL();
+
+        
 
         public void Add(PostStruct postStruct)
         {
@@ -44,7 +46,7 @@ namespace KilllerAppMemePlatform1.BLL
             {
                 postList.Add(new Post(postStruct));
             }
-            postCollectionDAL.GetAllPosts();
+            //postCollectionDAL.GetAllPosts();
             return postList;
         }
     }

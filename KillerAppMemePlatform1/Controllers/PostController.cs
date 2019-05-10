@@ -49,7 +49,6 @@ namespace KillerAppMemePlatform1.Controllers
                         string pathFile = postModel.FilePath;
                         uploadFile.SaveAs(pathFile);
 
-
                     }
 
                     else
