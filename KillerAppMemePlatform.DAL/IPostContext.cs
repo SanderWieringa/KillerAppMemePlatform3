@@ -9,7 +9,7 @@ namespace KillerAppMemePlatform.DAL
 {
     public interface IPostContext
     {
-        void Update();
+        void Update(PostStruct postStruct);
 
         void Add(PostStruct postStruct);
 

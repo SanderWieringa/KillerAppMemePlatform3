@@ -40,11 +40,6 @@ namespace KillerAppMemePlatform.DAL
             return postStructList;
         }
 
-        public bool Update(PostStruct postStruct)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Add(PostStruct postStruct)
         {
             using (GetConnection())
@@ -52,7 +47,7 @@ namespace KillerAppMemePlatform.DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("SP_PostInsert", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@videoPath", postStruct.FilePath);
+                cmd.Parameters.AddWithValue("@filePath", postStruct.FilePath);
                 cmd.Parameters.AddWithValue("@title", postStruct.Title);
                 cmd.Parameters.AddWithValue("@account_id", postStruct.AccountId);
                 cmd.Parameters.AddWithValue("@category_id", postStruct.CategoryId);
@@ -62,9 +57,21 @@ namespace KillerAppMemePlatform.DAL
             }
         }
 
-        public void Update()
+        public void Update(PostStruct postStruct)
         {
-            throw new NotImplementedException();
+            using (GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SP_PostUpdate", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@filePath", postStruct.FilePath);
+                cmd.Parameters.AddWithValue("@title", postStruct.Title);
+                cmd.Parameters.AddWithValue("@account_id", postStruct.AccountId);
+                cmd.Parameters.AddWithValue("@category_id", postStruct.CategoryId);
+                cmd.Parameters.AddWithValue("@status_id", postStruct.StatusId);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
         }
     }
 }
