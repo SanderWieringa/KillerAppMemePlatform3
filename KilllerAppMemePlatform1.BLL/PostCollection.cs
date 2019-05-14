@@ -27,8 +27,9 @@ namespace KilllerAppMemePlatform1.BLL
             }
         }
 
-        public void Add(IPost post)
+        public void Add(PostModel postModel)
         {
+            Post post = new Post(postModel);
             if (post.Title != "")
             {
                 postCollectionDAL.Add((post as Post).Convert(post));

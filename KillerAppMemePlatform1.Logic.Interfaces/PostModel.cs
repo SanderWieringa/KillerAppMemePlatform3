@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace KillerAppMemePlatform1.Models
+namespace KillerAppMemePlatform1.Logic.Interfaces
 {
     public class PostModel
     {
@@ -31,9 +31,9 @@ namespace KillerAppMemePlatform1.Models
            
         }
 
-        public void setFilePaths(string serverFolder)
+        public void ChangeFilePath(string filePath)
         {
-            this.FilePath = Path.Combine(serverFolder + "-post.png");
+            this.FilePath = FilePath;
         }
     }
 }

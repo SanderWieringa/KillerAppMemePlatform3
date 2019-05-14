@@ -24,6 +24,16 @@ namespace KilllerAppMemePlatform1.BLL
             StatusId = postStruct.StatusId;
         }
 
+        public Post(PostModel postModel)
+        {
+            PostId = postModel.PostId;
+            FilePath = postModel.FilePath;
+            Title = postModel.Title;
+            AccountId = postModel.AccountId;
+            CategoryId = postModel.CategoryId;
+            StatusId = postModel.StatusId;
+        }
+
         public void Update(int categoryId)
         {
             CategoryId = categoryId;

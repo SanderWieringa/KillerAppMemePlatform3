@@ -1,8 +1,8 @@
 ﻿using KillerAppMemePlatform1.Logic.Factory;
 using KillerAppMemePlatform1.Logic.Interfaces;
-using KillerAppMemePlatform1.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -34,6 +34,8 @@ namespace KillerAppMemePlatform1.Controllers
             return postModelList;
         }
 
+
+
         public ActionResult Create(HttpPostedFileBase uploadFile, PostModel postModel)
         {
             if (ModelState.IsValid)
@@ -42,13 +44,13 @@ namespace KillerAppMemePlatform1.Controllers
                 {
                     if (uploadFile != null)
                     {
-                        // save the upload filepath
-                        postModel.setFilePaths(Server.MapPath("~/UploadedFiles"));
+                        postModel.ChangeFilePath(Path.Combine(Server.MapPath("~/UploadedFiles") + uploadFile.FileName + "-post.png"));
 
-                        // save the files to the server folder
+                        // save the files to the server folder  
                         string pathFile = postModel.FilePath;
                         uploadFile.SaveAs(pathFile);
 
+                        PostCollectionLogic.Add(postModel);
                     }
 
                     else
@@ -64,7 +66,7 @@ namespace KillerAppMemePlatform1.Controllers
                     return RedirectToAction("Create");
                 }
             }
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         

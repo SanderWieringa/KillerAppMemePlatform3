@@ -17,7 +17,7 @@ namespace KillerAppMemePlatform.Tests
         public void AddPostTest()
         {
             // Arrange
-            PostStruct postStruct = new PostStruct(1, "", "Title", 1, 0, 1);
+            PostStruct postStruct = new PostStruct(1, "C:\\Users\\guita\\Documents\\School\\Eindhoven\\Semester2Herkansing\\Iteratie 4\\KillerAppMemePlatform2\\KillerAppMemePlatform1\\UploadedFilesBestSong.PNG - post.png", "Title", 1, 0, 1);
 
             Post testPost = new Post(postStruct);
 
@@ -29,10 +29,10 @@ namespace KillerAppMemePlatform.Tests
 
             post.Reverse();
 
-            Post lastAdded = post[0];
+            IPost lastAdded = post[0];
 
             // Assert
-            Assert.AreEqual(testPost.PostId, lastAdded.PostId);
+            Assert.AreEqual(lastAdded.PostId, testPost.PostId);
 
         }
 

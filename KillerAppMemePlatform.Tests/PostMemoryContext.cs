@@ -57,7 +57,7 @@ namespace KillerAppMemePlatform.DAL
             return postStructList;
         }
 
-        public void Update()
+        public void Update(PostStruct postStruct)
         {
             throw new NotImplementedException();
         }

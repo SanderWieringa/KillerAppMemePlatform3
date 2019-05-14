@@ -8,7 +8,7 @@ namespace KillerAppMemePlatform1.Logic.Interfaces
 {
     public interface IPostCollection
     {
-        void Add(IPost post);
+        void Add(PostModel postModel);
 
         List<IPost> GetAllPosts();
     }
