@@ -16,6 +16,7 @@ namespace KillerAppMemePlatform1.Controllers
         public IPost PostLogic { get; private set; } = KillerAppLogicFactory.CreatePost();
 
         // GET: Post
+        [HttpGet]
         public ActionResult Index()
         {
             ViewBag.Message = "Your Hot page.";
@@ -35,20 +36,23 @@ namespace KillerAppMemePlatform1.Controllers
         }
 
 
-
-        public ActionResult Create(HttpPostedFileBase uploadFile, PostModel postModel)
+        [HttpPost]
+        public ActionResult Create(PostModel postModel)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    if (uploadFile != null)
+                    if (postModel != null)
                     {
-                        postModel.ChangeFilePath(Path.Combine(Server.MapPath("~/UploadedFiles") + uploadFile.FileName + "-post.png"));
-
                         // save the files to the server folder  
-                        string pathFile = postModel.FilePath;
-                        uploadFile.SaveAs(pathFile);
+                        string fileName = Path.GetFileNameWithoutExtension(postModel.ImageFile.FileName);
+                        string extension = Path.GetExtension(postModel.ImageFile.FileName);
+                        fileName = fileName + extension;
+                        postModel.FilePath = "~/UploadedFiles/" + fileName;
+                        fileName = Path.Combine(Server.MapPath("~/UploadedFiles/") + fileName);
+                        postModel.ImageFile.SaveAs(fileName);
+                        ModelState.Clear();
 
                         PostCollectionLogic.Add(postModel);
                     }
@@ -56,21 +60,22 @@ namespace KillerAppMemePlatform1.Controllers
                     else
                     {
                         TempData["error"] = "Het uploaden van het bestand is niet gelukt.";
-                        return RedirectToAction("Create");
+                        return RedirectToAction("Upload");
                     }
                 }
-                catch
+                catch(Exception e)
                 {
                     // one or more errors encountered
+                    Console.WriteLine(e);
                     TempData["error"] = "Er is iets fout gegaan bij het uploaden";
                     return RedirectToAction("Create");
+
                 }
             }
             return RedirectToAction("Index");
         }
 
-        
-
+        [HttpGet]
         public ActionResult Trending()
         {
             ViewBag.Message = "Your Trending page.";
@@ -78,6 +83,7 @@ namespace KillerAppMemePlatform1.Controllers
             return View(ConvertToPostModelList());
         }
 
+        [HttpGet]
         public ActionResult Fresh()
         {
             ViewBag.Message = "Your Fresh page.";

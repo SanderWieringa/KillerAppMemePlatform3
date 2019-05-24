@@ -1,4 +1,5 @@
-﻿@model KilllerAppMemePlatform1.BLL.Post
+﻿@*@model KilllerAppMemePlatform1.BLL.Post*@
+@model KillerAppMemePlatform1.Logic.Interfaces.PostModel
 
 @{
     ViewBag.Title = "Upload";
@@ -27,9 +28,9 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("File", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.FilePath, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" name="uploadFile" />
+                <input type="file" name="ImageFile" required />
             </div>
         </div>
 

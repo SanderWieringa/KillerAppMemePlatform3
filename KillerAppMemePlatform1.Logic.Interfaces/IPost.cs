@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace KillerAppMemePlatform1.Logic.Interfaces
 {
@@ -14,6 +15,7 @@ namespace KillerAppMemePlatform1.Logic.Interfaces
         int AccountId { get; set; }
         int CategoryId { get; set; }
         int StatusId { get; set; }
+        
 
         bool Update();
     }

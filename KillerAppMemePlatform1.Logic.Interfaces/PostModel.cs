@@ -15,6 +15,7 @@ namespace KillerAppMemePlatform1.Logic.Interfaces
         public int AccountId { get; set; }
         public int CategoryId { get; set; }
         public int StatusId { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
 
         public PostModel(IPost post)
         {

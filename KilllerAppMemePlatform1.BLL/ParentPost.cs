@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace KilllerAppMemePlatform1.BLL
 {
@@ -21,6 +22,7 @@ namespace KilllerAppMemePlatform1.BLL
         public string Title { get; set; }
         public int AccountId { get; set; }
         public int StatusId { get; set; }
+        
 
         protected void Update(int postId, string filePath, string title, int accountId, int statusId)
         {
@@ -29,6 +31,7 @@ namespace KilllerAppMemePlatform1.BLL
             Title = title;
             AccountId = accountId;
             StatusId = statusId;
+            
         }
 
         protected void AddCommentToPost(Comment comment)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace KillerAppMemePlatform.DAL.Interfaces
 {
@@ -14,6 +15,7 @@ namespace KillerAppMemePlatform.DAL.Interfaces
         public int AccountId { get; private set; }
         public int CategoryId { get; private set; }
         public int StatusId { get; private set; }
+        
 
         public PostStruct(int postId, string filePath, string title,
                           int accountId, int categoryId, int statusId)
@@ -32,6 +34,8 @@ namespace KillerAppMemePlatform.DAL.Interfaces
             AccountId = accountId;
             CategoryId = categoryId;
             StatusId = statusId;
+            
         }
+
     }
 }

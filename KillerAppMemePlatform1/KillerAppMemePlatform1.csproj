@@ -193,6 +193,7 @@
     <Content Include="Views\Post\Upload.cshtml" />
     <Content Include="Views\Post\Fresh.cshtml" />
     <Content Include="Views\Post\Trending.cshtml" />
+    <Content Include="Views\Post\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
