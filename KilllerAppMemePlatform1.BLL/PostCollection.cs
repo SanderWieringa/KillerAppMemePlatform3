@@ -13,7 +13,35 @@ namespace KilllerAppMemePlatform1.BLL
     {
         private IPostCollectionRepository postCollectionDAL = KillerAppDALFactory.CreatePostCollectionDAL();
 
-        
+        public PostModel ConvertToPostModel(PostStruct p)
+        {
+            PostModel postModel = new PostModel();
+            postModel.PostId = p.PostId;
+            postModel.FilePath = p.FilePath;
+            postModel.Title = p.Title;
+            postModel.AccountId = p.AccountId;
+            postModel.CategoryId = p.CategoryId;
+            postModel.StatusId = p.StatusId;
+            return postModel;
+        }
+
+        public PostModel GetById(int PostId)
+        {
+            return ConvertToPostModel(postCollectionDAL.GetById(PostId));
+            
+            
+        }
+
+        public List<IPost> GetAllPosts()
+        {
+            List<IPost> postList = new List<IPost>();
+            foreach (PostStruct postStruct in postCollectionDAL.GetAllPosts())
+            {
+                postList.Add(new Post(postStruct));
+            }
+            //postCollectionDAL.GetAllPosts();
+            return postList;
+        }
 
         public void Add(PostStruct postStruct)
         {
@@ -40,15 +68,6 @@ namespace KilllerAppMemePlatform1.BLL
             }
         }
 
-        public List<IPost> GetAllPosts()
-        {
-            List<IPost> postList = new List<IPost>();
-            foreach (PostStruct postStruct in postCollectionDAL.GetAllPosts())
-            {
-                postList.Add(new Post(postStruct));
-            }
-            //postCollectionDAL.GetAllPosts();
-            return postList;
-        }
+        
     }
 }

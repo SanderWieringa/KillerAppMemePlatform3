@@ -31,10 +31,5 @@ namespace KillerAppMemePlatform1.Logic.Interfaces
         {
            
         }
-
-        public void ChangeFilePath(string filePath)
-        {
-            this.FilePath = FilePath;
-        }
     }
 }

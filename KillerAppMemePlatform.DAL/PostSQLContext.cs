@@ -40,6 +40,26 @@ namespace KillerAppMemePlatform.DAL
             return postStructList;
         }
 
+        public PostStruct GetById(int PostId)
+        {
+            using (GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("[SP_GetObjectById]", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@post_id", PostId);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+                    
+                        return new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
+                                                    reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5));
+                    
+                }
+            }
+           
+        }
+
         public void Add(PostStruct postStruct)
         {
             using (GetConnection())

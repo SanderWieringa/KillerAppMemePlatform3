@@ -40,7 +40,9 @@
                         @Html.DisplayFor(modelItem => item.PostId)
                     </td>*@
                 <td>
-                    <img src="@Url.Content(item.FilePath)" width="700" height="700">
+                    <a href="@Url.Action("PostDetails","Post", new { id = item.PostId })">
+                        <img src="@Url.Content(item.FilePath)" width="700" height="700">
+                    </a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)

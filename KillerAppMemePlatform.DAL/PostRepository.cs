@@ -32,9 +32,20 @@ namespace KillerAppMemePlatform.DAL
             return list;
         }
 
+        public PostStruct GetById(int PostId)
+        {
+            return Context.GetById(PostId);
+
+
+
+
+        }
+
         public bool Update(PostStruct postStruct)
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

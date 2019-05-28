@@ -14,5 +14,7 @@ namespace KillerAppMemePlatform.DAL
         void Add(PostStruct postStruct);
 
         List<PostStruct> GetAll();
+
+        PostStruct GetById(int PostId);
     }
 }

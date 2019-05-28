@@ -194,6 +194,8 @@
     <Content Include="Views\Post\Fresh.cshtml" />
     <Content Include="Views\Post\Trending.cshtml" />
     <Content Include="Views\Post\View.cshtml" />
+    <Content Include="Views\Post\PostDetails1.cshtml" />
+    <Content Include="Views\Post\PostDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

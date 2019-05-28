@@ -11,6 +11,8 @@ namespace KillerAppMemePlatform1.Logic.Interfaces
         void Add(PostModel postModel);
 
         List<IPost> GetAllPosts();
+
+        PostModel GetById(int PostId);
     }
 }
     

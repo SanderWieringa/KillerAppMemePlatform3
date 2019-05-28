@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<KillerAppMemePlatform1.Logic.Interfaces.PostModel>
 
 @{
-    ViewBag.Title = "Fresh";
+    ViewBag.Title = "PostDetails";
 }
 
-<div class="jumbotron">
-    <h1>Fresh</h1>
-    <p class="lead">Fresh</p>
-</div>
+<h2>PostDetails</h2>
 
-<div class="row">
+<div>
+    <h4>PostModel</h4>
+    <hr />
     <table class="table">
         <tr>
             @*<th>
@@ -66,3 +65,7 @@
 
     </table>
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

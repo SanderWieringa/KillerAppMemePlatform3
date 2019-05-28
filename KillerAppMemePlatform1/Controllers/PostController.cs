@@ -35,6 +35,11 @@ namespace KillerAppMemePlatform1.Controllers
             return postModelList;
         }
 
+        public PostModel ConvertToPostModel(int id)
+        {
+            return PostCollectionLogic.GetById(id);
+        }
+
 
         [HttpPost]
         public ActionResult Create(PostModel postModel)
@@ -73,6 +78,14 @@ namespace KillerAppMemePlatform1.Controllers
                 }
             }
             return RedirectToAction("Index");
+        }
+
+        
+        public ActionResult PostDetails(int id)
+        {
+            ViewBag.Message = "Your PostDetails page";
+
+            return View(ConvertToPostModel(id));
         }
 
         [HttpGet]
