@@ -17,7 +17,7 @@ namespace KillerAppMemePlatform.Tests
         public void AddPostTest()
         {
             // Arrange
-            PostStruct postStruct = new PostStruct(1, "C:\\Users\\guita\\Documents\\School\\Eindhoven\\Semester2Herkansing\\Iteratie 4\\KillerAppMemePlatform2\\KillerAppMemePlatform1\\UploadedFilesBestSong.PNG - post.png", "Title", 1, 0, 1);
+            PostStruct postStruct = new PostStruct(23, "/UploadedFiles/7.jpg", "Title", 1, 0, 1);
 
             Post testPost = new Post(postStruct);
 
@@ -27,7 +27,7 @@ namespace KillerAppMemePlatform.Tests
 
             List<IPost> post = postCollection.GetAllPosts();
 
-            post.Reverse();
+            //post.Reverse();
 
             IPost lastAdded = post[0];
 
@@ -53,10 +53,12 @@ namespace KillerAppMemePlatform.Tests
         public void NoTitleTest()
         {
             // Arrange
+            PostStruct postStruct = new PostStruct(23, "/UploadedFiles/7.jpg", "", 1, 0, 1);
+            PostCollection postCollection = new PostCollection();
 
 
             // Act
-
+            postCollection.Add(postStruct);
 
             // Assert
 
@@ -66,10 +68,12 @@ namespace KillerAppMemePlatform.Tests
         public void TitleTest()
         {
             // Arrange
+            PostStruct postStruct = new PostStruct(23, "/UploadedFiles/7.jpg", "Title", 1, 0, 1);
+            PostCollection postCollection = new PostCollection();
 
 
             // Act
-
+            postCollection.Add(postStruct);
 
             // Assert
 

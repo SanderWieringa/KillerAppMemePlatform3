@@ -80,7 +80,7 @@ namespace KillerAppMemePlatform1.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        [HttpGet]
         public ActionResult PostDetails(int id)
         {
             ViewBag.Message = "Your PostDetails page";

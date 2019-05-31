@@ -28,8 +28,6 @@ namespace KilllerAppMemePlatform1.BLL
         public PostModel GetById(int PostId)
         {
             return ConvertToPostModel(postCollectionDAL.GetById(PostId));
-            
-            
         }
 
         public List<IPost> GetAllPosts()
@@ -67,7 +65,5 @@ namespace KilllerAppMemePlatform1.BLL
                 throw new ArgumentException("Title can not be null");
             }
         }
-
-        
     }
 }

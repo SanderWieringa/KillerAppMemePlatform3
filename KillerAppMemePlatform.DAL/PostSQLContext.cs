@@ -33,7 +33,7 @@ namespace KillerAppMemePlatform.DAL
                     while (reader.Read())
                     {
                         postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
-                                                          reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5)));
+                                                            reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5)));
                     }
                 }
             }
@@ -54,10 +54,8 @@ namespace KillerAppMemePlatform.DAL
                     
                         return new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
                                                     reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5));
-                    
                 }
             }
-           
         }
 
         public void Add(PostStruct postStruct)

@@ -31,6 +31,7 @@ namespace KillerAppMemePlatform.Tests
 
         }
 
+        [TestMethod]
         public void Add(PostStruct postStruct)
         {
             

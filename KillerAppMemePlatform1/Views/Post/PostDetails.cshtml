@@ -4,6 +4,7 @@
     ViewBag.Title = "PostDetails";
 }
 
+<link href="~/Styles/styles.css" rel="stylesheet" type="text/css" />
 <div class="jumbotron">
     <h1>Post details</h1>
 </div>
@@ -12,7 +13,7 @@
     
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.PostId)
         </dt>
 
@@ -21,22 +22,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FilePath)
-        </dt>
-
-        <dd>
-            <a href="@Url.Action("PostDetails","Post", new { id = Model.PostId })">
-                <img src="@Url.Content(Model.FilePath)" width="700" height="700">
-            </a>
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Title)
-        </dt>
+        </dt>*@
 
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.FilePath)
+        </dt>*@
+
+        <dd>
+            <a href="@Url.Action("PostDetails","Post", new { id = Model.PostId })">
+                <img id="image" src="@Url.Content(Model.FilePath)" >
+            </a>
+        </dd>
+
+
 
         @*<dt>
             @Html.DisplayNameFor(model => model.AccountId)
