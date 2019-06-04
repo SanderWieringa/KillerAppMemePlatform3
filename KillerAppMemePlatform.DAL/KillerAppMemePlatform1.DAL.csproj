@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILikeContext.cs" />
     <Compile Include="IPostContext.cs" />
+    <Compile Include="LikeSQLContext.cs" />
     <Compile Include="PostSQLContext.cs" />
     <Compile Include="PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

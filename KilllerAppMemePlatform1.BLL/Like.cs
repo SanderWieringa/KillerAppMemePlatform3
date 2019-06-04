@@ -8,10 +8,10 @@ namespace KilllerAppMemePlatform1.BLL
 {
     public class Like
     {
-        public int like_id { get; set; }
-        public int account_id { get; set; }
-        public int? post_id { get; set; }
-        public int? comment_id { get; set; }
+        public int LikeId { get; set; }
+        public int AccountId { get; set; }
+        public int? PostId { get; set; }
+        public int? CommentId { get; set; }
 
     }
 }

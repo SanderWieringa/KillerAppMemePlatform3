@@ -45,6 +45,11 @@ namespace KilllerAppMemePlatform1.BLL
 
         }
 
+        public void AddLikeToPost(LikeModel likeModel)
+        {
+
+        }
+
         public PostStruct Convert(IPost post)
         {
             return new PostStruct(post.PostId, post.FilePath, post.Title, post.AccountId, post.CategoryId, post.StatusId); // TODO invullen

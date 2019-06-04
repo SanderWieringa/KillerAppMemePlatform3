@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="IPostCollectionRepository.cs" />
     <Compile Include="IPostRepository.cs" />
+    <Compile Include="LikeStruct.cs" />
     <Compile Include="PostStruct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

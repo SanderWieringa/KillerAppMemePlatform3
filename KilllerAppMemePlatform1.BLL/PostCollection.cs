@@ -13,7 +13,7 @@ namespace KilllerAppMemePlatform1.BLL
     {
         private IPostCollectionRepository postCollectionDAL = KillerAppDALFactory.CreatePostCollectionDAL();
 
-        public PostModel ConvertToPostModel(PostStruct p)
+        private PostModel ConvertToPostModel(PostStruct p)
         {
             PostModel postModel = new PostModel();
             postModel.PostId = p.PostId;
@@ -43,13 +43,16 @@ namespace KilllerAppMemePlatform1.BLL
 
         public void Add(PostStruct postStruct)
         {
-            if (postStruct.Title != "")
+            try
             {
-                postCollectionDAL.Add(postStruct);
+                if (postStruct.Title != "")
+                {
+                    postCollectionDAL.Add(postStruct);
+                }
             }
-            else
+            catch (Exception e)
             {
-                throw new ArgumentException("Title can not be null");
+
             }
         }
 
