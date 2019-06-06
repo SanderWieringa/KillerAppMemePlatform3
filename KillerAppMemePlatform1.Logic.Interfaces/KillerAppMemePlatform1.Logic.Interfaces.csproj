@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="IPost.cs" />
     <Compile Include="IPostCollection.cs" />
+    <Compile Include="LikeModel.cs" />
     <Compile Include="PostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

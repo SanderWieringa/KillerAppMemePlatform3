@@ -9,6 +9,7 @@ namespace KilllerAppMemePlatform1.BLL
     public class Account
     {
         List<Post> postList = new List<Post>();
+        List<Comment> commentList = new List<Comment>();
 
         public int account_id { get; set; }
         public string Username { get; set; }
@@ -18,6 +19,11 @@ namespace KilllerAppMemePlatform1.BLL
         public void AddPost(Post post)
         {
             postList.Add(post);
+        }
+
+        public void AddComment(Comment comment)
+        {
+            commentList.Add(comment);
         }
     }
 }

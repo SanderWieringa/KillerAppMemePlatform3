@@ -15,6 +15,9 @@ namespace KilllerAppMemePlatform1.BLL
         public int? account_id { get; set; }
         public int? post_id { get; set; }
 
+        public Account account { get; private set; }
+        public Post post { get; private set; }
+
         public void AddLikeToComment(Like like)
         {
             likeList.Add(like);

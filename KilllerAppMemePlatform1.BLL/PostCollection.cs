@@ -19,9 +19,6 @@ namespace KilllerAppMemePlatform1.BLL
             postModel.PostId = p.PostId;
             postModel.FilePath = p.FilePath;
             postModel.Title = p.Title;
-            postModel.AccountId = p.AccountId;
-            postModel.CategoryId = p.CategoryId;
-            postModel.StatusId = p.StatusId;
             return postModel;
         }
 
@@ -37,7 +34,6 @@ namespace KilllerAppMemePlatform1.BLL
             {
                 postList.Add(new Post(postStruct));
             }
-            //postCollectionDAL.GetAllPosts();
             return postList;
         }
 

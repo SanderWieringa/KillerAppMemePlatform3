@@ -8,7 +8,7 @@ namespace KilllerAppMemePlatform1.BLL
 {
     public class Category
     {
-        public int category_id { get; set; }
+        public int categoryId { get; set; }
         public string Name { get; set; }
 
     }

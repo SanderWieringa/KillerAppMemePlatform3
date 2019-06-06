@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KilllerAppMemePlatform1.BLL
+namespace KillerAppMemePlatform1.Logic.Interfaces
 {
-    public class Like
+    public class LikeModel
     {
         public int LikeId { get; set; }
+        [Required]
         public int AccountId { get; set; }
         public int? PostId { get; set; }
         public int? CommentId { get; set; }
-
-        public Account account { get; private set; }
-        public Post post { get; private set; }
-        public Comment comment { get; private set; }
-
     }
 }

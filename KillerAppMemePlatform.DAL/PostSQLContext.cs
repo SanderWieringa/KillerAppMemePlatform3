@@ -32,8 +32,7 @@ namespace KillerAppMemePlatform.DAL
                 {
                     while (reader.Read())
                     {
-                        postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
-                                                            reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5)));
+                        postStructList.Add(new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string));
                     }
                 }
             }
@@ -51,9 +50,9 @@ namespace KillerAppMemePlatform.DAL
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     reader.Read();
-                    
-                        return new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string,
-                                                    reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5));
+
+                    return new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string
+                                                /*reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5)*/);
                 }
             }
         }
@@ -67,9 +66,9 @@ namespace KillerAppMemePlatform.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@filePath", postStruct.FilePath);
                 cmd.Parameters.AddWithValue("@title", postStruct.Title);
-                cmd.Parameters.AddWithValue("@account_id", postStruct.AccountId);
-                cmd.Parameters.AddWithValue("@category_id", postStruct.CategoryId);
-                cmd.Parameters.AddWithValue("@status_id", postStruct.StatusId);
+                //cmd.Parameters.AddWithValue("@account_id", postStruct.AccountId);
+                //cmd.Parameters.AddWithValue("@category_id", postStruct.CategoryId);
+                //cmd.Parameters.AddWithValue("@status_id", postStruct.StatusId);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -84,9 +83,9 @@ namespace KillerAppMemePlatform.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@filePath", postStruct.FilePath);
                 cmd.Parameters.AddWithValue("@title", postStruct.Title);
-                cmd.Parameters.AddWithValue("@account_id", postStruct.AccountId);
-                cmd.Parameters.AddWithValue("@category_id", postStruct.CategoryId);
-                cmd.Parameters.AddWithValue("@status_id", postStruct.StatusId);
+                //cmd.Parameters.AddWithValue("@account_id", postStruct.AccountId);
+                //cmd.Parameters.AddWithValue("@category_id", postStruct.CategoryId);
+                //cmd.Parameters.AddWithValue("@status_id", postStruct.StatusId);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
