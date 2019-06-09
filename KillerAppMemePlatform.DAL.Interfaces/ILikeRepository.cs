@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace KillerAppMemePlatform.DAL.Interfaces
 {
-    public struct LikeStruct
+    public interface ILikeRepository
     {
-        public int LikeId { get; set; } 
-        public PostStruct PostObject { get; set; }
+        void AddLike(LikeStruct likeStruct);
+
+        void RemoveLike(int LikeId);
     }
 }

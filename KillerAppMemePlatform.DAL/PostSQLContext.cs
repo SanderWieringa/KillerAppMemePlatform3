@@ -13,7 +13,7 @@ namespace KillerAppMemePlatform.DAL
     public class PostSQLContext : IPostContext
     {
         private SqlConnection conn;
-        const string connectionString = "Data Source=mssql.fhict.local;Initial Catalog=dbi365250;Persist Security Info=True;User ID=dbi365250;Password=Kcw0hI3FHW";
+        const string connectionString = "Server=mssql.fhict.local;Database=dbi365250;User Id=dbi365250;Password=Kcw0hI3FHW;";
 
         private SqlConnection GetConnection()
         {
@@ -51,8 +51,7 @@ namespace KillerAppMemePlatform.DAL
                 {
                     reader.Read();
 
-                    return new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string
-                                                /*reader.GetInt32(3), (reader.GetInt32(4) as int?) ?? 0, reader.GetInt32(5)*/);
+                    return new PostStruct(reader.GetInt32(0), reader.GetString(1) as string, reader.GetString(2) as string);
                 }
             }
         }
@@ -66,9 +65,6 @@ namespace KillerAppMemePlatform.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@filePath", postStruct.FilePath);
                 cmd.Parameters.AddWithValue("@title", postStruct.Title);
-                //cmd.Parameters.AddWithValue("@account_id", postStruct.AccountId);
-                //cmd.Parameters.AddWithValue("@category_id", postStruct.CategoryId);
-                //cmd.Parameters.AddWithValue("@status_id", postStruct.StatusId);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -83,9 +79,6 @@ namespace KillerAppMemePlatform.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@filePath", postStruct.FilePath);
                 cmd.Parameters.AddWithValue("@title", postStruct.Title);
-                //cmd.Parameters.AddWithValue("@account_id", postStruct.AccountId);
-                //cmd.Parameters.AddWithValue("@category_id", postStruct.CategoryId);
-                //cmd.Parameters.AddWithValue("@status_id", postStruct.StatusId);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }

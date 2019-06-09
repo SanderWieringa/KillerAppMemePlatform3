@@ -20,6 +20,9 @@ namespace KillerAppMemePlatform1.Factory
             return new PostRepository(new PostSQLContext());
         }
         
-        
+        public static ILikeRepository CreateLikeDAL()
+        {
+            return new LikeRepository(new LikeSQLContext());
+        }
     }
 }

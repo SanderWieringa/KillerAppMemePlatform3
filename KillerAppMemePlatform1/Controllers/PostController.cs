@@ -48,25 +48,16 @@ namespace KillerAppMemePlatform1.Controllers
             {
                 try
                 {
-                    if (postModel != null)
-                    {
-                        // save the files to the server folder  
-                        string fileName = Path.GetFileNameWithoutExtension(postModel.ImageFile.FileName);
-                        string extension = Path.GetExtension(postModel.ImageFile.FileName);
-                        fileName = fileName + extension;
-                        postModel.FilePath = "~/UploadedFiles/" + fileName;
-                        fileName = Path.Combine(Server.MapPath("~/UploadedFiles/") + fileName);
-                        postModel.ImageFile.SaveAs(fileName);
-                        ModelState.Clear();
+                    // save the files to the server folder  
+                    string fileName = Path.GetFileNameWithoutExtension(postModel.ImageFile.FileName);
+                    string extension = Path.GetExtension(postModel.ImageFile.FileName);
+                    fileName = fileName + extension;
+                    postModel.FilePath = "~/UploadedFiles/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("~/UploadedFiles/") + fileName);
+                    postModel.ImageFile.SaveAs(fileName);
+                    ModelState.Clear();
 
-                        PostCollectionLogic.Add(postModel);
-                    }
-
-                    else
-                    {
-                        TempData["error"] = "Het uploaden van het bestand is niet gelukt.";
-                        return RedirectToAction("Upload");
-                    }
+                    PostCollectionLogic.Add(postModel);
                 }
                 catch(Exception e)
                 {

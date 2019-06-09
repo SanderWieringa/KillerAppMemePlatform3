@@ -17,13 +17,13 @@ namespace KillerAppMemePlatform.Tests
         public void AddPostTest()
         {
             // Arrange
-            PostStruct postStruct = new PostStruct(23, "/UploadedFiles/7.jpg", "Title", 1, 0, 1);
+            PostModel postModel = new PostModel(23, "/UploadedFiles/7.jpg", "Title");
 
-            Post testPost = new Post(postStruct);
+            Post testPost = new Post(postModel);
 
             // Act
             PostCollection postCollection = new PostCollection();
-            postCollection.Add(postStruct);
+            postCollection.Add(postModel);
 
             List<IPost> post = postCollection.GetAllPosts();
 
@@ -53,7 +53,7 @@ namespace KillerAppMemePlatform.Tests
         public void NoTitleTest()
         {
             // Arrange
-            PostStruct postStruct = new PostStruct(23, "/UploadedFiles/7.jpg", "", 1, 0, 1);
+            PostStruct postStruct = new PostStruct(23, "/UploadedFiles/7.jpg", "");
             PostCollection postCollection = new PostCollection();
 
 
@@ -68,7 +68,7 @@ namespace KillerAppMemePlatform.Tests
         public void TitleTest()
         {
             // Arrange
-            PostStruct postStruct = new PostStruct(23, "/UploadedFiles/7.jpg", "Title", 1, 0, 1);
+            PostStruct postStruct = new PostStruct(23, "/UploadedFiles/7.jpg", "Title");
             PostCollection postCollection = new PostCollection();
 
 

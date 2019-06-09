@@ -13,12 +13,12 @@ namespace KilllerAppMemePlatform1.BLL
     {
         private IPostCollectionRepository postCollectionDAL = KillerAppDALFactory.CreatePostCollectionDAL();
 
-        private PostModel ConvertToPostModel(PostStruct p)
+        private PostModel ConvertToPostModel(PostStruct postStruct)
         {
             PostModel postModel = new PostModel();
-            postModel.PostId = p.PostId;
-            postModel.FilePath = p.FilePath;
-            postModel.Title = p.Title;
+            postModel.PostId = postStruct.PostId;
+            postModel.FilePath = postStruct.FilePath;
+            postModel.Title = postStruct.Title;
             return postModel;
         }
 

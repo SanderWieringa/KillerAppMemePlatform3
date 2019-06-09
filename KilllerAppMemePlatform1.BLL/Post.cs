@@ -14,26 +14,38 @@ namespace KilllerAppMemePlatform1.BLL
     {
         private IPostRepository PostDAL = KillerAppDALFactory.CreatePostDAL();
 
-        List<Comment> commentList = new List<Comment>();
+        private ILikeRepository LikeDAL = KillerAppDALFactory.CreateLikeDAL();
+
         List<Like> likeList = new List<Like>();
+
+        private PostModel ConvertToPostModel(PostStruct PostObject)
+        {
+            PostModel postModel = new PostModel();
+            postModel.PostId = PostObject.PostId;
+            postModel.FilePath = PostObject.FilePath;
+            postModel.Title = PostObject.Title;
+
+            return postModel;
+        }
+
+        private LikeModel ConvertToLikeModel(LikeStruct likeStruct)
+        {
+            LikeModel likeModel = new LikeModel();
+            likeModel.LikeId = likeStruct.LikeId;
+            likeModel.PostObject = ConvertToPostModel(likeStruct.PostObject);
+
+            return likeModel;
+        }
 
         public int PostId { get; set; }
         public string FilePath { get; set; }
         public string Title { get; set; }
-        //public int AccountId { get; set; }
-        //public int StatusId { get; set; }
-        //public int CategoryId { get; set; }
-
-        public Account account { get; private set; }
 
         public Post(PostStruct postStruct)
         {
             PostId = postStruct.PostId;
             FilePath = postStruct.FilePath;
             Title = postStruct.Title;
-            //AccountId = postStruct.AccountId;
-            //CategoryId = postStruct.CategoryId;
-            //StatusId = postStruct.StatusId;
         }
 
         public Post(PostModel postModel)
@@ -41,9 +53,6 @@ namespace KilllerAppMemePlatform1.BLL
             PostId = postModel.PostId;
             FilePath = postModel.FilePath;
             Title = postModel.Title;
-            //AccountId = postModel.AccountId;
-            //CategoryId = postModel.CategoryId;
-            //StatusId = postModel.StatusId;
         }
 
         public void Update(IPost iPost)
@@ -51,9 +60,6 @@ namespace KilllerAppMemePlatform1.BLL
             PostId = iPost.PostId;
             FilePath = iPost.FilePath;
             Title = iPost.Title;
-            //CategoryId = iPost.CategoryId;
-            //AccountId = iPost.AccountId;
-            //StatusId = iPost.StatusId;
         }
 
         public Post()   
@@ -61,24 +67,19 @@ namespace KilllerAppMemePlatform1.BLL
 
         }
 
-        public void AddCommentToPost(Comment comment)
-        {
-            commentList.Add(comment);
-        }
-
-        //public void AddLikeToPost(LikeModel likeModel)
+        //public void AddLikeToPost(ConvertToLikeModel(LikeStruct ))
         //{
-        //    likeList.Add(likeModel);
+        //    LikeDAL.AddLike();
         //}
 
-        public void AddLikeToPost(Like like)
-        {
-            likeList.Add(like);
-        }
+        //public void AddLikeToPost(Like like)
+        //{
+        //    LikeDAL.AddLike((like as Like).Convert(like));
+        //}
 
         public PostStruct Convert(IPost post)
         {
-            return new PostStruct(post.PostId, post.FilePath, post.Title/*, post.AccountId, post.CategoryId, post.StatusId*/); // TODO invullen
+            return new PostStruct(post.PostId, post.FilePath, post.Title);
         }
     }
 }

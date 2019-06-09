@@ -12,9 +12,6 @@ namespace KillerAppMemePlatform1.Logic.Interfaces
         int PostId { get; set; }
         string FilePath { get; set; }
         string Title { get; set; }
-        //int AccountId { get; set; }
-        //int CategoryId { get; set; }
-        //int StatusId { get; set; }
         
         void Update(IPost post);
     }

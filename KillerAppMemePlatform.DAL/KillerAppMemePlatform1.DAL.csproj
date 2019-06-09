@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ILikeContext.cs" />
     <Compile Include="IPostContext.cs" />
+    <Compile Include="LikeRepository.cs" />
     <Compile Include="LikeSQLContext.cs" />
     <Compile Include="PostSQLContext.cs" />
     <Compile Include="PostRepository.cs" />
