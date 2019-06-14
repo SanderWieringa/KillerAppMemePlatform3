@@ -48,7 +48,6 @@ namespace KillerAppMemePlatform1.Controllers
             {
                 try
                 {
-                    // save the files to the server folder  
                     string fileName = Path.GetFileNameWithoutExtension(postModel.ImageFile.FileName);
                     string extension = Path.GetExtension(postModel.ImageFile.FileName);
                     fileName = fileName + extension;
@@ -59,7 +58,7 @@ namespace KillerAppMemePlatform1.Controllers
 
                     PostCollectionLogic.Add(postModel);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     // one or more errors encountered
                     Console.WriteLine(e);

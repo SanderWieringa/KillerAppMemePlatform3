@@ -10,27 +10,17 @@
     <p class="lead">9gag. But better.</p>
 </div>
 
+<script>
+    var name = 'Sander';
+    console.log(name);
+</script>
+
 <div class="row" id="row">
-    @*<table class="table" id="table">
-        <tr>*@
-    @*<th>
-            @Html.DisplayNameFor(model => model.PostId)
-        </th>*@
-    @*<th>
-            @Html.DisplayNameFor(model => model.FilePath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>*@
-    @*<th></th>*@
-    @*</tr>*@
+    
 
     @foreach (var item in Model)
     {
-        @*<tr>*@
-        @*<td>
-                @Html.DisplayFor(modelItem => item.PostId)
-            </td>*@
+        
         <dl class="dl-horizontal">
 
             <dd id="postheader">

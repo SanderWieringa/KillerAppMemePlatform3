@@ -37,21 +37,6 @@ namespace KilllerAppMemePlatform1.BLL
             return postList;
         }
 
-        public void Add(PostStruct postStruct)
-        {
-            try
-            {
-                if (postStruct.Title != "")
-                {
-                    postCollectionDAL.Add(postStruct);
-                }
-            }
-            catch (Exception e)
-            {
-
-            }
-        }
-
         public void Add(PostModel postModel)
         {
             Post post = new Post(postModel);

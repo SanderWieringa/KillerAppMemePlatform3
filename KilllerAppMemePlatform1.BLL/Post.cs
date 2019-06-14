@@ -41,18 +41,21 @@ namespace KilllerAppMemePlatform1.BLL
         public string FilePath { get; set; }
         public string Title { get; set; }
 
-        public Post(PostStruct postStruct)
+        public Post(int postId, string filePath, string title)
         {
-            PostId = postStruct.PostId;
-            FilePath = postStruct.FilePath;
-            Title = postStruct.Title;
+            PostId = postId;
+            FilePath = filePath;
+            Title = title;
         }
 
-        public Post(PostModel postModel)
+        public Post(PostStruct postStruct) : this(postStruct.PostId, postStruct.FilePath, postStruct.Title)
         {
-            PostId = postModel.PostId;
-            FilePath = postModel.FilePath;
-            Title = postModel.Title;
+
+        }
+
+        public Post(PostModel postModel) : this(postModel.PostId, postModel.FilePath, postModel.Title)
+        {
+
         }
 
         public void Update(IPost iPost)

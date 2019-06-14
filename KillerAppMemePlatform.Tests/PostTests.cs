@@ -14,26 +14,39 @@ namespace KillerAppMemePlatform.Tests
     public class PostTests
     {
         [TestMethod]
-        public void AddPostTest()
+        public void AddPostTest1()
         {
             // Arrange
             PostModel postModel = new PostModel(23, "/UploadedFiles/7.jpg", "Title");
 
-            Post testPost = new Post(postModel);
+            IPost testPost = new Post(postModel);
 
             // Act
             PostCollection postCollection = new PostCollection();
             postCollection.Add(postModel);
 
-            List<IPost> post = postCollection.GetAllPosts();
-
+            List<IPost> posts = postCollection.GetAllPosts();
+            
             //post.Reverse();
 
-            IPost lastAdded = post[0];
+            //IPost lastAdded = posts[0];
 
             // Assert
-            Assert.AreEqual(lastAdded.PostId, testPost.PostId);
+            Assert.IsTrue(posts.Contains(testPost));
+            //Assert.AreEqual(lastAdded.PostId, testPost.PostId);
 
+        }
+
+        [TestMethod]
+        public void AddPostTests()
+        {
+            PostModel postModel = new PostModel(1, "FilePath", "Title");
+            PostCollection postCollection = new PostCollection();
+            
+            postCollection.Add(postModel);
+            Post actualPost = new Post(postModel);
+
+            Assert.AreEqual(postModel , actualPost);
         }
 
         [TestMethod]
@@ -53,12 +66,12 @@ namespace KillerAppMemePlatform.Tests
         public void NoTitleTest()
         {
             // Arrange
-            PostStruct postStruct = new PostStruct(23, "/UploadedFiles/7.jpg", "");
+            PostModel postModel = new PostModel();
             PostCollection postCollection = new PostCollection();
 
 
             // Act
-            postCollection.Add(postStruct);
+            postCollection.Add(postModel);
 
             // Assert
 
@@ -68,12 +81,11 @@ namespace KillerAppMemePlatform.Tests
         public void TitleTest()
         {
             // Arrange
-            PostStruct postStruct = new PostStruct(23, "/UploadedFiles/7.jpg", "Title");
-            PostCollection postCollection = new PostCollection();
+            PostModel postModel = new PostModel(); PostCollection postCollection = new PostCollection();
 
 
             // Act
-            postCollection.Add(postStruct);
+            postCollection.Add(postModel);
 
             // Assert
 

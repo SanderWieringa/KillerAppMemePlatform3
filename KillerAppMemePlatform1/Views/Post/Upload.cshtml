@@ -5,13 +5,14 @@
     ViewBag.Title = "Upload";
 }
 
+<script src="~/Scripts/ValidationTool.js" type="text/javascript"></script>
 <link href="~/Styles/styles.css" rel="stylesheet" type="text/css" />
 <div class="jumbotron">
     <h1>Upload</h1>
     @*<p class="lead">9gag. But better.</p>*@
 </div>
 
-<script src="~/Scripts/ValidationTool.js" type="text/javascript"></script>
+
 
 
 @using (Html.BeginForm("Create", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -33,24 +34,26 @@
     
 
     <div class="form-group">
-        @Html.LabelFor(model => model.FilePath, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.FilePath, htmlAttributes: new { @class = "control-label col-md-2"})
         <div class="col-md-10">
-            <input type="file" name="ImageFile" required />
+            <input type="file" name="ImageFile" id="uploadFile" />
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input id="button" type="submit" value="Upload" class="btn btn-default" />
+            <input id="button" type="submit" value="Upload" onclick="valid();" class="btn btn-default" />
 
             <script type="text/javascript">
-                $(document).ready(function () {
-                    $("#button").click(function () {
-                        if ($("#ValidateTextBox").val() == "") {
-                            alert("Post must have a title");
-                        }
-                    })
-                });
+                function valid() {
+                    var validTitle = document.getElementById('@Html.Id("ValidateTextBox")').value;
+
+                    var titleMessage = 'Your post must have a title!';
+
+                    if (validTitle === '') {
+                        alert(titleMessage);
+                    }
+                }
             </script>
 
         </div>
