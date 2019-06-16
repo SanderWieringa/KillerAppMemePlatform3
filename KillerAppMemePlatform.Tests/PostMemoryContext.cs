@@ -11,17 +11,24 @@ namespace KillerAppMemePlatform.DAL
 {
     public class PostMemoryContext : IPostContext
     {
+        private List<PostStruct> postStructList = new List<PostStruct>();
+        public List<PostStruct> GetPostStructList { get => postStructList; }
+
+        private void PreFillLists()
+        {
+            postStructList.Add(new PostStruct(1, "FilePath", "Title"));
+            postStructList.Add(new PostStruct(2, "FilePath", "Title"));
+        }
+
         public void Add(PostStruct postStruct)
         {
-            List<PostStruct> postStructList = new List<PostStruct>();
             postStructList.Add(postStruct);
         }
 
         public List<PostStruct> GetAll()
         {
             List<PostStruct> postStructList = new List<PostStruct>();
-            postStructList.Add(new PostStruct(1, "FilePath", "Title"));
-            postStructList.Add(new PostStruct(2, "FilePath", "Title"));
+            PreFillLists();
             return postStructList;
         }
 
@@ -33,8 +40,7 @@ namespace KillerAppMemePlatform.DAL
         public PostStruct GetById(int PostId)
         {
             List<PostStruct> postStructList = new List<PostStruct>();
-            postStructList.Add(new PostStruct(1, "FilePath", "Title"));
-            postStructList.Add(new PostStruct(2, "FilePath", "Title"));
+            PreFillLists();
             PostStruct postStruct = postStructList.Find(x => x.PostId == PostId);
             return postStruct;
         }

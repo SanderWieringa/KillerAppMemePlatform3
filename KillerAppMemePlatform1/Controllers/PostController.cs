@@ -40,7 +40,6 @@ namespace KillerAppMemePlatform1.Controllers
             return PostCollectionLogic.GetById(id);
         }
 
-
         [HttpPost]
         public ActionResult Create(PostModel postModel)
         {

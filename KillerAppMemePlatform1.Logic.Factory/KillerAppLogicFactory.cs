@@ -1,4 +1,5 @@
-﻿using KillerAppMemePlatform1.Logic.Interfaces;
+﻿using KillerAppMemePlatform1.Factory;
+using KillerAppMemePlatform1.Logic.Interfaces;
 using KilllerAppMemePlatform1.BLL;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace KillerAppMemePlatform1.Logic.Factory
 
         public static IPostCollection CreatePostCollection()
         {
-            return new PostCollection();
+            return new PostCollection(KillerAppDALFactory.CreatePostCollectionDAL());
         }
     }
 }

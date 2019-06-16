@@ -45,6 +45,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KillerAppMemePlatform.DAL.Interfaces\KillerAppMemePlatform1.DAL.Interfaces.csproj">
+      <Project>{C35868F2-8B0D-4A37-9036-E16FFA3FE483}</Project>
+      <Name>KillerAppMemePlatform1.DAL.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KillerAppMemePlatform1.Factory\KillerAppMemePlatform1.DAL.Factory.csproj">
+      <Project>{cb949ac6-219d-452e-910c-5db37f880de9}</Project>
+      <Name>KillerAppMemePlatform1.DAL.Factory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KillerAppMemePlatform1.Logic.Interfaces\KillerAppMemePlatform1.Logic.Interfaces.csproj">
       <Project>{60CA1E0F-419A-4C9D-B049-5DA61CF7E693}</Project>
       <Name>KillerAppMemePlatform1.Logic.Interfaces</Name>

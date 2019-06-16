@@ -13,6 +13,10 @@ namespace KillerAppMemePlatform.Tests
     [TestClass]
     public class PostTests
     {
+        private IPostRepository postMemoryDAL = TestFactory.CreateMemoryPostDAL();
+
+        private IPostCollectionRepository postCollectionMemoryDAL = TestFactory.CreateMemoryPostCollectionDAL();
+
         [TestMethod]
         public void AddPostTest1()
         {
@@ -22,31 +26,36 @@ namespace KillerAppMemePlatform.Tests
             IPost testPost = new Post(postModel);
 
             // Act
-            PostCollection postCollection = new PostCollection();
+            PostCollection postCollection = new PostCollection(postCollectionMemoryDAL);
             postCollection.Add(postModel);
 
             List<IPost> posts = postCollection.GetAllPosts();
             
-            //post.Reverse();
+            posts.Reverse();
 
-            //IPost lastAdded = posts[0];
+            IPost lastAdded = posts[0];
 
             // Assert
             Assert.IsTrue(posts.Contains(testPost));
-            //Assert.AreEqual(lastAdded.PostId, testPost.PostId);
-
+            Assert.AreEqual(lastAdded.PostId, testPost.PostId);
         }
+
+        
 
         [TestMethod]
         public void AddPostTests()
         {
             PostModel postModel = new PostModel(1, "FilePath", "Title");
-            PostCollection postCollection = new PostCollection();
+            PostCollection postCollection = new PostCollection(postCollectionMemoryDAL);
+
+            
             
             postCollection.Add(postModel);
             Post actualPost = new Post(postModel);
 
-            Assert.AreEqual(postModel , actualPost);
+            Assert.AreEqual(postModel.PostId , actualPost.PostId);
+            Assert.AreEqual(postModel.Title, actualPost.Title);
+            Assert.AreEqual(postModel.FilePath, actualPost.FilePath);
         }
 
         [TestMethod]
@@ -65,23 +74,22 @@ namespace KillerAppMemePlatform.Tests
         [TestMethod]
         public void NoTitleTest()
         {
-            // Arrange
-            PostModel postModel = new PostModel();
-            PostCollection postCollection = new PostCollection();
+            PostModel postModel = new PostModel(1, "FilePath", "");
+            PostCollection postCollection = new PostCollection(postCollectionMemoryDAL);
 
-
-            // Act
             postCollection.Add(postModel);
+            Post actualPost = new Post(postModel);
 
-            // Assert
-
+            Assert.AreEqual(postModel.PostId, actualPost.PostId);
+            Assert.AreEqual(postModel.Title, actualPost.Title);
+            Assert.AreEqual(postModel.FilePath, actualPost.FilePath);
         }
 
         [TestMethod]
         public void TitleTest()
         {
             // Arrange
-            PostModel postModel = new PostModel(); PostCollection postCollection = new PostCollection();
+            PostModel postModel = new PostModel(); PostCollection postCollection = new PostCollection(postCollectionMemoryDAL);
 
 
             // Act
